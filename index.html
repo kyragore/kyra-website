@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kyra Gore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f5f0;
+      --text: #1a1a18;
+      --muted: #888078;
+      --accent: #3a8c8c;
+      --border: #ddd8cf;
+      --tag-bg: #edeae3;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 19px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3.5rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      animation: fadeDown 0.6s ease both;
+    }
+
+    .nav-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 7rem 2rem 5rem;
+    }
+
+    .hero {
+      margin-bottom: 4rem;
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+    }
+
+    h1 em { font-style: italic; color: var(--accent); }
+
+    .intro-text {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: #3a3830;
+      line-height: 1.85;
+    }
+
+    .intro-text a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    section { margin-bottom: 3.5rem; animation: fadeUp 0.8s ease 0.3s both; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.6rem; }
+
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.75rem;
+      background: var(--tag-bg);
+      border-radius: 2px;
+      color: var(--muted);
+    }
+
+    .xp-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.2rem 1.5rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .xp-item:first-of-type { border-top: 1px solid var(--border); }
+
+    .xp-role { font-weight: 500; font-size: 1rem; }
+    .xp-org { font-style: italic; color: var(--muted); font-size: 0.95rem; }
+    .xp-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      align-self: start;
+      padding-top: 0.25rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .xp-desc {
+      grid-column: 1 / -1;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #5a5650;
+      margin-top: 0.3rem;
+    }
+
+    .interests { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .interest-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.1rem 1.2rem;
+    }
+
+    .interest-icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .interest-title { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .interest-desc { font-size: 0.88rem; font-weight: 300; color: var(--muted); line-height: 1.6; }
+
+    blockquote {
+      border-left: 2px solid var(--accent);
+      padding-left: 1.4rem;
+      margin: 2.5rem 0 0;
+      font-style: italic;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #5a5650;
+      animation: fadeUp 0.8s ease 0.5s both;
+    }
+
+    .contact-row { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-top: 1rem; }
+
+    .contact-row a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .contact-row a:hover { color: var(--accent); border-color: var(--accent); }
+
+    footer {
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      padding: 2.5rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.5rem; }
+      main { padding: 6rem 1.4rem 4rem; }
+      .interests { grid-template-columns: 1fr; }
+      .nav-links { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#">Kyra Gore</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <p class="eyebrow">National University of Singapore</p>
+    <h1>Hi, I'm <em>Kyra!</em></h1>
+    <p class="intro-text">
+      I am currently finishing my final year at the National University of Singapore, in Mechanical Engineering with a double major in Innovation and Design. My interests lie in product innovation and user design! I'm an <a href="https://www.duke-nus.edu.sg/innovation/for-aspiring-innovators/dhip" target="_blank">Engineering Fellow at the Duke-NUS Health Innovator Program</a>, designing an orthopaedic device for knee replacement surgery — in collaboration with Johnson &amp; Johnson and Singapore General Hospital.
+    </p>
+    <br>
+    <p class="intro-text">
+      My work experience spans across medical devices, automation tooling, user-centric product design, and computational origami. I care deeply about human-centred research: I don't just prototype — I interview, observe, test, and iterate until the thing actually works for the person using it.
+    </p>
+    <br>
+    <p class="intro-text">
+      I'm looking for full-time roles where design thinking meets real-world engineering.
+    </p>
+  </div>
+
+  <section id="experience">
+    <div class="section-label">Experience</div>
+
+    <div class="xp-item">
+      <div>
+        <div class="xp-role">Design &amp; Make Teaching Assistant</div>
+        <div class="xp-org">National University of Singapore</div>
+      </div>
+      <div class="xp-year">Aug 2024 – Present</div>
+      <div class="xp-desc">Guided 200+ first-year students through design ideation, laser cutting, and prototyping.</div>
+    </div>
+
+    <div class="xp-item">
+      <div>
+        <div class="xp-role">Mechanical Engineering Intern</div>
+        <div class="xp-org">Bajaj Auto Limited</div>
+      </div>
+      <div class="xp-year">May – Aug 2024</div>
+      <div class="xp-desc">Built automation scripts for brake system design, cutting manual errors by 40%. Standardised 3D modelling workflows with a team of 5 engineers.</div>
+    </div>
+
+    <div class="xp-item">
+      <div>
+        <div class="xp-role">Engineering Intern</div>
+        <div class="xp-org">Foley Designs</div>
+      </div>
+      <div class="xp-year">May – Jul 2023</div>
+      <div class="xp-desc">Led UX research to design a child-friendly DIY lamp kit. Usability tested with children aged 5–10, integrated Arduino sensors in a 3D-printed enclosure.</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-label">Projects</div>
+
+    <div class="xp-item">
+      <div>
+        <div class="xp-role">Orthopaedic Device for Knee Replacement</div>
+        <div class="xp-org">Duke-NUS Health Innovator Programme · Engineering Fellow</div>
+      </div>
+      <div class="xp-year">Aug 2025 – Present</div>
+      <div class="xp-desc">Designing a soft-tissue tension measurement device to improve post-op outcomes. Conducting surgeon interviews, hardware prototyping, and sensor integration with J&amp;J and SGH.</div>
+    </div>
+
+    <div class="xp-item">
+      <div>
+        <div class="xp-role">Infant NGT Insertion Training Model</div>
+        <div class="xp-org">Pediatric Care · Team Lead</div>
+      </div>
+      <div class="xp-year">Jan – Dec 2024</div>
+      <div class="xp-desc">Led design of a training simulator for caregiver NGT practice — sensors, actuators, soft materials, and hospital-grade usability. Won <em>Most Inspiring Project</em> among 30 teams.</div>
+    </div>
+
+    <div class="xp-item">
+      <div>
+        <div class="xp-role">Computational Origami Software</div>
+        <div class="xp-org">Research with Dr. Jason Ku · NUS</div>
+      </div>
+      <div class="xp-year">Jan 2023 – Jun 2024</div>
+      <div class="xp-desc">Built a JS tool to convert origami crease pattern images into vector formats using BFS/DFS algorithms — bridging paper folding and computational design.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Skills</div>
+    <div class="tag-row">
+      <span class="tag">Fusion 360</span>
+      <span class="tag">Solidworks</span>
+      <span class="tag">Figma</span>
+      <span class="tag">Arduino</span>
+      <span class="tag">Python</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">3D Printing</span>
+      <span class="tag">Laser Cutting</span>
+      <span class="tag">Silicon Casting</span>
+      <span class="tag">Affinity Mapping</span>
+      <span class="tag">Usability Testing</span>
+      <span class="tag">Journey Mapping</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Beyond work</div>
+    <div class="interests">
+      <div class="interest-card">
+        <div class="interest-icon">🪢</div>
+        <div class="interest-title">Origami</div>
+        <div class="interest-desc">Founder &amp; President of NUS Origami Club (400 members). Folding since grade 3 — from cranes to complex transformable structures. IB extended essay on origami mathematics.</div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon">⚽</div>
+        <div class="interest-title">Football</div>
+        <div class="interest-desc">Represented Mumbai at state level for 2 consecutive years. Former captain of CDE interfaculty team. Ran grassroots football sessions for young girls during COVID lockdowns.</div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon">🎨</div>
+        <div class="interest-title">Art &amp; Doodles</div>
+        <div class="interest-desc">Digital illustration, acrylic painting, mandala doodling. Organised a community art challenge for kids in lockdown.</div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon">🤖</div>
+        <div class="interest-title">Robotics</div>
+        <div class="interest-desc">Dean's List nominee at FIRST Robotics Competition — built a wearable breathing monitor using FSRs and Arduino. Ignited a lasting interest in sensors and physical computing.</div>
+      </div>
+    </div>
+  </section>
+
+  <blockquote>
+    "Academic excellence and varying interests not only make me well-rounded — they give me the confidence to dream big, the conviction to chase those dreams, and the focus to convert them to reality."
+  </blockquote>
+
+  <section id="contact" style="margin-top: 3.5rem;">
+    <div class="section-label">Get in touch</div>
+    <p class="intro-text" style="font-size:1rem;">
+      I'm actively looking for full-time roles in product design, design engineering, or UX-driven hardware. If anything here resonates, I'd love to connect.
+    </p>
+    <div class="contact-row">
+      <a href="mailto:kyragore@u.nus.edu">kyragore@u.nus.edu</a>
+      <a href="https://www.linkedin.com/in/kyra-gore" target="_blank">LinkedIn</a>
+      <a href="tel:+6583483813">+65 8348 3813</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Kyra Gore &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; 2026
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href === '#') { window.scrollTo({ top: 0, behavior: 'smooth' }); e.preventDefault(); return; }
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        var offset = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
