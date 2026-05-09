@@ -188,39 +188,76 @@
     .badge-award       { color: var(--accent2); border: 1px solid var(--accent2); }
     .badge-confidential{ color: var(--muted);   border: 1px solid var(--border); }
 
-    /* ─── WORK EXPERIENCE (dark) ─── */
-    .xp-row {
-      display: grid; grid-template-columns: 2fr 1px 3fr;
-      gap: 0 2.8rem; padding: 2.8rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+    /* ─── WORK EXPERIENCE — magazine spreads on dark bg ─── */
+    .work-spread {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 3.5rem; overflow: hidden;
     }
-    .xp-row:first-of-type { padding-top: 0; }
-    .xp-row:last-of-type  { border-bottom: none; padding-bottom: 0; }
-    .xp-divider { background: rgba(255,255,255,0.1); }
+    .work-spread:last-child { margin-bottom: 0; }
+    .work-spread.flip > .work-visual { order: 2; }
+    .work-spread.flip > .work-body   { order: 1; border-left: none; border-right: 1px solid rgba(255,255,255,0.1); }
 
-    /* work experience image thumb */
-    .xp-has-image { grid-template-columns: 2fr 1px 2fr 1px 2fr; gap: 0 2rem; }
+    .work-visual {
+      min-height: 460px; position: relative; overflow: hidden;
+      background: #1a1915;
+    }
+    /* tall single image */
+    .work-visual .img-placeholder {
+      background: #1e1d18;
+    }
+    /* mosaic layouts */
+    .work-mosaic-3 {
+      display: grid;
+      grid-template-rows: 58% 42%;
+      grid-template-columns: 1fr 1fr;
+      width: 100%; height: 100%; min-height: 460px; gap: 2px;
+    }
+    .work-mosaic-3 .ph-main { grid-column: 1 / -1; }
 
-    .xp-period {
+    .work-mosaic-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 100%; height: 100%; min-height: 460px; gap: 2px;
+    }
+
+    /* dark bg placeholder tint */
+    .work-visual .img-placeholder { background: #1e1d18; }
+    .work-visual .img-ph-label    { color: rgba(255,255,255,0.3); }
+
+    .work-body {
+      padding: 3rem 2.8rem;
+      display: flex; flex-direction: column; justify-content: center;
+      background: #161512;
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
+    .work-tag {
       font-family: 'DM Mono', monospace;
-      font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #6bbfbf; margin-bottom: 0.55rem;
+      font-size: 0.57rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #6bbfbf; margin-bottom: 0.5rem;
     }
-    .xp-title {
+    .work-num {
       font-family: 'Playfair Display', serif;
-      font-size: 1.45rem; font-weight: 700; line-height: 1.15;
-      margin-bottom: 0.2rem; color: var(--bg);
+      font-size: 4rem; font-weight: 900; line-height: 1;
+      color: rgba(255,255,255,0.07); margin-bottom: -0.1rem; margin-left: -0.04em;
     }
-    .xp-org { font-style: italic; font-size: 0.92rem; color: rgba(245,242,236,0.5); }
-    .xp-right {
-      font-size: 0.92rem; font-weight: 300;
-      color: rgba(245,242,236,0.72); line-height: 1.88;
-      padding-top: 0.1rem;
+    .work-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      font-weight: 700; line-height: 1.15;
+      margin-bottom: 0.3rem; color: var(--bg);
     }
-    .xp-thumb {
-      min-height: 160px; border-radius: 3px; overflow: hidden;
-      background: rgba(255,255,255,0.06); align-self: center;
+    .work-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(245,242,236,0.45); margin-bottom: 1.3rem;
     }
+    .work-body p {
+      font-size: 0.93rem; font-weight: 300;
+      color: rgba(245,242,236,0.7); line-height: 1.88; margin-bottom: 0.85rem;
+    }
+    .work-body p:last-of-type { margin-bottom: 0; }
 
     /* ─── EDUCATION ─── */
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); }
@@ -374,8 +411,11 @@
       .proj-body { border-left: none; border-top: 1px solid var(--border); }
       .proj-visual, .proj-mosaic { min-height: 260px; }
 
-      .xp-row { grid-template-columns: 1fr; gap: 0.8rem; }
-      .xp-divider { display: none; }
+      .work-spread { grid-template-columns: 1fr; }
+      .work-spread.flip > .work-visual { order: 0; }
+      .work-spread.flip > .work-body   { order: 0; border-right: none; border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .work-body { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .work-visual, .work-mosaic-3, .work-mosaic-4 { min-height: 260px; }
 
       .edu-grid  { grid-template-columns: 1fr; }
       .edu-card  { border-right: none; border-bottom: 1px solid var(--border); }
@@ -530,43 +570,102 @@
   </div>
 
   <!-- W1: Bajaj -->
-  <div class="xp-row reveal">
-    <div>
-      <div class="xp-period">May 2024 – Aug 2024</div>
-      <div class="xp-title">Automation Tools for Brake System Design</div>
-      <div class="xp-org">Mechanical Engineering Intern · Bajaj Auto Limited</div>
+  <div class="work-spread reveal">
+    <div class="work-visual">
+      <!-- 4-panel grid: workflow diagram, brake drawing, 3D model, drafting template -->
+      <div class="work-mosaic-4">
+        <div class="img-placeholder">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#555" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Workflow map<br><em class="img-ph-sub">swap: &lt;img src="bajaj-1.jpg"&gt;</em></span>
+        </div>
+        <div class="img-placeholder">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#555" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Brake system drawing<br><em class="img-ph-sub">swap: &lt;img src="bajaj-2.jpg"&gt;</em></span>
+        </div>
+        <div class="img-placeholder">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#555" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">3D model views<br><em class="img-ph-sub">swap: &lt;img src="bajaj-3.jpg"&gt;</em></span>
+        </div>
+        <div class="img-placeholder">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#555" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Drafting template<br><em class="img-ph-sub">swap: &lt;img src="bajaj-4.jpg"&gt;</em></span>
+        </div>
+      </div>
     </div>
-    <div class="xp-divider"></div>
-    <div class="xp-right">
-      At Bajaj Auto, I designed automation tools to streamline repetitive tasks in brake system design. I began by shadowing design engineers and mapping their end-to-end workflow — identifying time sinks, frequent error points, and friction moments that slowed iteration. From these insights, I collaborated with a team of five engineers to co-design automation scripts that restructured key processes, reduced cognitive load, and standardised modelling steps. The result was a more seamless, consistent design workflow that cut manual errors by ~40% and improved adoption by making automation feel natural rather than imposed.
+    <div class="work-body">
+      <div class="work-tag">Mechanical Engineering Intern · May 2024 – Aug 2024</div>
+      <div class="work-num">01</div>
+      <h3 class="work-title">Automation Tools for Brake System Design</h3>
+      <div class="work-role">Bajaj Auto Limited</div>
+      <p>At Bajaj Auto, I designed automation tools to streamline repetitive tasks in brake system design. I began by shadowing design engineers and mapping their end-to-end workflow — identifying time sinks, frequent error points, and friction moments that slowed iteration.</p>
+      <p>From these insights, I collaborated with a team of five engineers to co-design automation scripts that restructured key processes, reduced cognitive load, and standardised modelling steps. My focus was on making the tools intuitive, efficient, and aligned with engineers' mental models, not just technically optimised.</p>
+      <p>The result was a more seamless, consistent design workflow that cut manual errors by ~40% and improved adoption by making automation feel natural rather than imposed. This project taught me to approach internal tools as user products — balancing usability, technical precision, and measurable impact.</p>
     </div>
   </div>
 
   <!-- W2: Foley Designs -->
-  <div class="xp-row reveal reveal-d1">
-    <div>
-      <div class="xp-period">May 2023 – Jul 2023</div>
-      <div class="xp-title">Child-Friendly DIY Lamp Kit</div>
-      <div class="xp-org">Engineering Intern · Foley Designs</div>
+  <div class="work-spread flip reveal">
+    <div class="work-visual">
+      <!-- 3-panel: big rendered image top, 2 smaller (prototype + electronics) -->
+      <div class="work-mosaic-3">
+        <div class="img-placeholder ph-main">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#555" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Firefly lamp — rendered<br><em class="img-ph-sub">swap: &lt;img src="foley-render.jpg"&gt;</em></span>
+        </div>
+        <div class="img-placeholder">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#555" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">3D printed prototype<br><em class="img-ph-sub">swap: &lt;img src="foley-proto.jpg"&gt;</em></span>
+        </div>
+        <div class="img-placeholder">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#555" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Arduino wiring<br><em class="img-ph-sub">swap: &lt;img src="foley-elec.jpg"&gt;</em></span>
+        </div>
+      </div>
     </div>
-    <div class="xp-divider"></div>
-    <div class="xp-right">
-      At Foley Designs, I designed a child-friendly DIY lamp kit for children aged 5–10, blending safety, learning, and delight. We began with observational research sessions with children and parents, watching how they interacted with early prototypes — where they got stuck, what sparked curiosity, and when they lost focus. Using those insights, I simplified the assembly journey, redefined connection points and affordances, and integrated Arduino and sensors within a Fusion 360-based 3D printed form, ensuring all electronics were securely enclosed yet visually engaging. Balanced aesthetics, functionality, and user engagement, developing a product which enhanced fine motor skills and fostered creativity.
+    <div class="work-body">
+      <div class="work-tag">Engineering Intern · May 2023 – Jul 2023</div>
+      <div class="work-num">02</div>
+      <h3 class="work-title">Child-Friendly DIY Lamp Kit</h3>
+      <div class="work-role">Foley Designs</div>
+      <p>At Foley Designs, I designed a child-friendly DIY lamp kit for children aged 5–10, blending safety, learning, and delight. We began with observational research sessions with children and parents, watching how they interacted with early prototypes — where they got stuck, what sparked curiosity, and when they lost focus.</p>
+      <p>Using those insights, I simplified the assembly journey, redefined connection points and affordances, and restructured the instructions to make the experience intuitive and self-guided, even without adult assistance. I integrated Arduino and sensors within a Fusion 360-based 3D printed form, ensuring all electronics were securely enclosed yet visually engaging.</p>
+      <p>Through rapid prototyping and iterative user testing, I refined the physical and interaction details to make the kit rewarding, safe, and frustration-free — teaching me how thoughtful design can make complex technology feel simple, empowering, and fun.</p>
     </div>
   </div>
 
   <!-- W3: NUS TA -->
-  <div class="xp-row reveal reveal-d2">
-    <div>
-      <div class="xp-period">Aug 2024 – Present</div>
-      <div class="xp-title">Design &amp; Make Teaching Assistant</div>
-      <div class="xp-org">National University of Singapore</div>
+  <div class="work-spread reveal">
+    <div class="work-visual">
+      <!-- 4-panel: students working, robot car, Fusion 360 model, laser cutting -->
+      <div class="work-mosaic-4">
+        <div class="img-placeholder">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#555" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Students working<br><em class="img-ph-sub">swap: &lt;img src="nus-ta-1.jpg"&gt;</em></span>
+        </div>
+        <div class="img-placeholder">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#555" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Robotic car design<br><em class="img-ph-sub">swap: &lt;img src="nus-ta-2.jpg"&gt;</em></span>
+        </div>
+        <div class="img-placeholder">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#555" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Fusion 360 model<br><em class="img-ph-sub">swap: &lt;img src="nus-ta-3.jpg"&gt;</em></span>
+        </div>
+        <div class="img-placeholder">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#555" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Laser cutting session<br><em class="img-ph-sub">swap: &lt;img src="nus-ta-4.jpg"&gt;</em></span>
+        </div>
+      </div>
     </div>
-    <div class="xp-divider"></div>
-    <div class="xp-right">
-      Guided 200 first-year students in design ideation, laser cutting, and prototyping techniques with a focus on product development and efficiency. Enabled students to enhance their design thinking skills by helping them troubleshoot their robotic car designs. Used Arduino to program the robot to pass an obstacle course, and used Autodesk Fusion 360 to design the parts of the robot.
+    <div class="work-body">
+      <div class="work-tag">Teaching Assistant · Aug 2024 – Present</div>
+      <div class="work-num">03</div>
+      <h3 class="work-title">Design &amp; Make Teaching Assistant</h3>
+      <div class="work-role">National University of Singapore</div>
+      <p>Guided 200 first-year students in design ideation, laser cutting, and prototyping techniques with a focus on product development and efficiency. Enabled students to enhance their design thinking skills by helping them troubleshoot their robotic car designs.</p>
+      <p>Used Arduino to program the robot to pass an obstacle course, and used Autodesk Fusion 360 to design the parts of the robot. Learnt fundamentals of engineering design and prototyping to make a robot, and helped students apply the same iterative design-and-test process to their own builds.</p>
     </div>
   </div>
+
 </section>
 
 <!-- ─── 03 · EDUCATION ─── -->
