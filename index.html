@@ -31,7 +31,7 @@
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
+    /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
@@ -44,534 +44,540 @@
       font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--muted); text-decoration: none;
     }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
     .nav-links a {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--muted); text-decoration: none; transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ── HERO ── */
+    /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 0 2.5rem 4rem;
-      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 8rem 2.5rem 5rem;
       border-bottom: 1px solid var(--border);
+      background: var(--bg);
     }
-    .hero-bg-text {
-      position: absolute; top: 50%; left: -0.02em;
-      transform: translateY(-50%);
+    .hero-content { max-width: 780px; }
+
+    .hero-greeting {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(12rem, 26vw, 22rem);
-      font-weight: 900; font-style: italic;
-      color: transparent;
-      -webkit-text-stroke: 1px var(--border);
-      line-height: 1; white-space: nowrap;
-      pointer-events: none; user-select: none;
-      z-index: 0;
-    }
-    .hero-content { position: relative; z-index: 1; max-width: 900px; }
-    .hero-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1.5rem;
-    }
-    .hero-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(4rem, 12vw, 9rem);
-      font-weight: 900; line-height: 0.9;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900; line-height: 1;
       letter-spacing: -0.02em;
-      margin-bottom: 2rem;
+      margin-bottom: 2.2rem;
+      white-space: nowrap;
     }
-    .hero-name em { font-style: italic; color: var(--accent); }
+    .hero-greeting .plain { color: var(--ink); }
+    .hero-greeting em    { font-style: italic; color: var(--accent); }
+
     .hero-desc {
-      font-size: clamp(1.05rem, 2vw, 1.3rem);
-      font-weight: 300; max-width: 580px;
-      color: #3d3a34; line-height: 1.85;
-      margin-bottom: 2.5rem;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-weight: 300;
+      color: #3d3a34; line-height: 1.9;
+      max-width: 640px;
     }
     .hero-desc a { color: var(--accent); text-underline-offset: 3px; }
-    .hero-meta {
-      display: flex; gap: 2.5rem; flex-wrap: wrap;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--muted);
-    }
-    .hero-meta span::before { content: '— '; }
 
-    /* ── SECTION WRAPPERS ── */
+    /* ─── SHARED SECTION ─── */
     .section-wrap { padding: 6rem 2.5rem; border-bottom: 1px solid var(--border); }
-    .section-wrap.dark { background: var(--ink); color: var(--bg); }
+    .section-wrap.dark  { background: var(--ink); color: var(--bg); }
     .section-wrap.white { background: var(--white); }
+    .section-wrap.plain { background: var(--bg); }
 
     .section-header {
-      display: flex; align-items: baseline; gap: 1.5rem;
+      display: flex; align-items: baseline; gap: 1.4rem;
       margin-bottom: 4rem;
     }
     .section-num {
       font-family: 'DM Mono', monospace;
-      font-size: 0.62rem; letter-spacing: 0.14em;
-      color: var(--accent); text-transform: uppercase;
+      font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); flex-shrink: 0;
     }
     .dark .section-num { color: #6bbfbf; }
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      font-weight: 700; line-height: 1; letter-spacing: -0.02em;
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      font-weight: 700; line-height: 1.05; letter-spacing: -0.02em;
     }
     .section-title em { font-style: italic; color: var(--accent); }
     .dark .section-title em { color: #6bbfbf; }
+    .dark .section-title { color: var(--bg); }
 
-    /* ── PROJECT SPREAD ── */
+    /* ─── IMAGE PLACEHOLDER ─── */
+    .img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: #e8e3d8; gap: 0.7rem;
+    }
+    .img-ph-icon { width: 32px; height: 32px; opacity: 0.22; }
+    .img-ph-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); text-align: center; padding: 0 1.2rem;
+      line-height: 1.6;
+    }
+    .img-ph-sub { opacity: 0.55; display: block; margin-top: 0.2rem; }
+
+    /* ─── PROJECT SPREAD ─── */
     .project-spread {
       display: grid; grid-template-columns: 1fr 1fr;
       border: 1px solid var(--border);
-      margin-bottom: 4rem; overflow: hidden;
+      margin-bottom: 3.5rem; overflow: hidden;
     }
     .project-spread:last-child { margin-bottom: 0; }
-    .project-spread.flip > .project-image { order: 2; }
-    .project-spread.flip > .project-body  { order: 1; border-left: none; border-right: 1px solid var(--border); }
 
-    .project-image {
-      min-height: 500px; position: relative; overflow: hidden;
+    /* flip: image on right */
+    .project-spread.flip > .proj-visual { order: 2; }
+    .project-spread.flip > .proj-body   { order: 1; border-left: none; border-right: 1px solid var(--border); }
+
+    .proj-visual {
+      min-height: 480px; position: relative; overflow: hidden;
       background: #e8e3d8;
     }
-    .img-mosaic {
-      display: grid; grid-template-columns: 1fr 1fr;
-      grid-template-rows: 60% 40%; gap: 2px;
-      width: 100%; height: 100%; min-height: 500px;
+    /* mosaic: big top + two small bottom */
+    .proj-mosaic {
+      display: grid;
+      grid-template-rows: 60% 40%;
+      grid-template-columns: 1fr 1fr;
+      width: 100%; height: 100%; min-height: 480px; gap: 2px;
     }
-    .img-mosaic .tile-main { grid-column: 1 / -1; }
-    .img-placeholder {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      background: #e8e3d8; gap: 0.6rem;
-      width: 100%; height: 100%;
-    }
-    .img-placeholder-icon { width: 36px; height: 36px; opacity: 0.25; }
-    .img-placeholder-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--muted); text-align: center; padding: 0 1.5rem;
-    }
-    .img-placeholder-label em { font-style: normal; opacity: 0.6; }
+    .proj-mosaic .ph-main { grid-column: 1 / -1; }
 
-    .project-body {
+    .proj-body {
       padding: 3rem 2.8rem;
       display: flex; flex-direction: column; justify-content: center;
       background: var(--white);
       border-left: 1px solid var(--border);
     }
-    .project-tag {
+    .proj-tag {
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 0.6rem;
+      font-size: 0.57rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.5rem;
     }
-    .project-num {
+    .proj-num {
       font-family: 'Playfair Display', serif;
-      font-size: 4.5rem; font-weight: 900; line-height: 1;
-      color: var(--border); margin-bottom: -0.2rem; margin-left: -0.05em;
+      font-size: 4rem; font-weight: 900; line-height: 1;
+      color: var(--border); margin-bottom: -0.1rem; margin-left: -0.04em;
     }
-    .project-title {
+    .proj-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
-      font-weight: 700; line-height: 1.15; margin-bottom: 0.35rem;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      font-weight: 700; line-height: 1.15; margin-bottom: 0.3rem;
     }
-    .project-role {
+    .proj-role {
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 1.4rem;
+      font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1.3rem;
     }
-    .project-body p {
-      font-size: 0.95rem; font-weight: 300;
-      color: #4a4640; line-height: 1.85; margin-bottom: 0.9rem;
+    .proj-body p {
+      font-size: 0.93rem; font-weight: 300;
+      color: #4a4640; line-height: 1.88; margin-bottom: 0.85rem;
     }
-    .project-body p:last-of-type { margin-bottom: 1.2rem; }
-    .award-badge {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--accent2); border: 1px solid var(--accent2);
-      border-radius: 2px; padding: 0.18rem 0.55rem; margin-top: 0.4rem;
-    }
-    .confidential-badge {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--muted); border: 1px solid var(--border);
-      border-radius: 2px; padding: 0.18rem 0.55rem; margin-top: 0.4rem; margin-left: 0.4rem;
-    }
+    .proj-body p:last-of-type { margin-bottom: 1rem; }
 
-    /* ── EXPERIENCE (dark) ── */
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border-radius: 2px; padding: 0.18rem 0.52rem; margin-top: 0.35rem;
+    }
+    .badge-award       { color: var(--accent2); border: 1px solid var(--accent2); }
+    .badge-confidential{ color: var(--muted);   border: 1px solid var(--border); }
+
+    /* ─── WORK EXPERIENCE (dark) ─── */
     .xp-row {
-      display: grid; grid-template-columns: 2.2fr 1px 3fr;
-      gap: 0 3rem; padding: 3rem 0;
+      display: grid; grid-template-columns: 2fr 1px 3fr;
+      gap: 0 2.8rem; padding: 2.8rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .xp-row:first-of-type { padding-top: 0; }
     .xp-row:last-of-type  { border-bottom: none; padding-bottom: 0; }
     .xp-divider { background: rgba(255,255,255,0.1); }
+
+    /* work experience image thumb */
+    .xp-has-image { grid-template-columns: 2fr 1px 2fr 1px 2fr; gap: 0 2rem; }
+
     .xp-period {
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #6bbfbf; margin-bottom: 0.6rem;
+      font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #6bbfbf; margin-bottom: 0.55rem;
     }
     .xp-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.55rem; font-weight: 700; line-height: 1.15;
-      margin-bottom: 0.25rem; color: var(--bg);
+      font-size: 1.45rem; font-weight: 700; line-height: 1.15;
+      margin-bottom: 0.2rem; color: var(--bg);
     }
-    .xp-org { font-style: italic; font-size: 0.95rem; color: rgba(245,242,236,0.55); }
+    .xp-org { font-style: italic; font-size: 0.92rem; color: rgba(245,242,236,0.5); }
     .xp-right {
-      font-size: 0.93rem; font-weight: 300;
-      color: rgba(245,242,236,0.72); line-height: 1.85;
-      padding-top: 0.15rem;
+      font-size: 0.92rem; font-weight: 300;
+      color: rgba(245,242,236,0.72); line-height: 1.88;
+      padding-top: 0.1rem;
+    }
+    .xp-thumb {
+      min-height: 160px; border-radius: 3px; overflow: hidden;
+      background: rgba(255,255,255,0.06); align-self: center;
     }
 
-    /* ── EDUCATION ── */
-    .edu-strip { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); }
-    .edu-card { padding: 2.8rem 2.5rem; border-right: 1px solid var(--border); }
+    /* ─── EDUCATION ─── */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); }
+    .edu-card { padding: 2.6rem 2.4rem; border-right: 1px solid var(--border); }
     .edu-card:last-child { border-right: none; }
     .edu-period {
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 0.5rem;
     }
     .edu-school {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem; font-weight: 700; margin-bottom: 0.3rem;
+      font-size: 1.2rem; font-weight: 700; margin-bottom: 0.28rem;
     }
-    .edu-degree { font-style: italic; font-size: 0.93rem; color: var(--muted); margin-bottom: 0.6rem; }
+    .edu-degree { font-style: italic; font-size: 0.92rem; color: var(--muted); margin-bottom: 0.55rem; }
     .edu-detail {
       font-family: 'DM Mono', monospace;
-      font-size: 0.62rem; letter-spacing: 0.08em; color: var(--accent2);
+      font-size: 0.6rem; letter-spacing: 0.08em; color: var(--accent2);
     }
 
-    /* ── ABOUT / SKILLS ── */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-    .about-block h3 {
+    /* ─── SKILLS ─── */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .skills-about h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.7rem; font-weight: 700; margin-bottom: 1rem;
+      font-size: 1.65rem; font-weight: 700; margin-bottom: 0.9rem;
     }
-    .about-block p { font-size: 0.98rem; font-weight: 300; color: #4a4640; line-height: 1.85; }
-    .skills-groups { margin-top: 0.5rem; }
-    .skills-group { margin-bottom: 1.6rem; }
-    .skills-group-label {
+    .skills-about p { font-size: 0.95rem; font-weight: 300; color: #4a4640; line-height: 1.88; }
+    .skill-group { margin-bottom: 1.5rem; }
+    .skill-group-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 0.7rem;
+      font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.65rem;
     }
-    .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.38rem; }
     .tag {
       font-family: 'DM Mono', monospace;
-      font-size: 0.6rem; letter-spacing: 0.05em;
-      padding: 0.28rem 0.65rem;
+      font-size: 0.58rem; letter-spacing: 0.05em;
+      padding: 0.26rem 0.62rem;
       background: var(--bg); border: 1px solid var(--border);
       border-radius: 2px; color: var(--muted);
     }
 
-    /* ── BEYOND / INTERESTS ── */
-    .interests-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); }
-    .interest-item {
-      padding: 2.8rem 2.5rem;
+    /* ─── BEYOND WORK ─── */
+    .beyond-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border);
+    }
+    .beyond-card {
+      padding: 2.6rem 2.4rem;
       border-right: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-    .interest-item:nth-child(2n)       { border-right: none; }
-    .interest-item:nth-last-child(-n+2){ border-bottom: none; }
+    .beyond-card:nth-child(2n)       { border-right: none; }
+    .beyond-card:nth-last-child(-n+2){ border-bottom: none; }
 
-    .interest-image {
-      width: 100%; height: 200px;
+    .beyond-image {
+      width: 100%; height: 190px;
       background: var(--border); border-radius: 2px;
-      margin-bottom: 1.4rem; overflow: hidden; position: relative;
+      margin-bottom: 1.3rem; overflow: hidden;
     }
-    .interest-label {
+    .beyond-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 0.35rem;
+      font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.3rem;
     }
-    .interest-title {
+    .beyond-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.55rem; font-weight: 700; margin-bottom: 0.75rem;
+      font-size: 1.45rem; font-weight: 700; margin-bottom: 0.7rem;
     }
-    .interest-desc { font-size: 0.93rem; font-weight: 300; color: #4a4640; line-height: 1.82; }
+    .beyond-desc { font-size: 0.92rem; font-weight: 300; color: #4a4640; line-height: 1.85; }
 
-    /* ── QUOTE ── */
+    /* ─── QUOTE ─── */
     .quote-wrap {
       padding: 7rem 2.5rem; text-align: center;
-      background: var(--ink); border-bottom: 1px solid #222018;
+      background: var(--ink); border-bottom: 1px solid #1e1c16;
     }
     blockquote {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+      font-size: clamp(1.35rem, 3vw, 2.1rem);
       font-weight: 400; font-style: italic;
-      color: var(--bg); line-height: 1.55;
-      max-width: 760px; margin: 0 auto;
+      color: var(--bg); line-height: 1.6;
+      max-width: 740px; margin: 0 auto;
     }
     blockquote::before { content: '\201C'; color: #6bbfbf; }
     blockquote::after  { content: '\201D'; color: #6bbfbf; }
 
-    /* ── CONTACT ── */
+    /* ─── CONTACT ─── */
     .contact-wrap {
       padding: 6rem 2.5rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
     }
     .contact-heading {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
       font-weight: 900; line-height: 0.95; letter-spacing: -0.02em;
     }
     .contact-heading em { font-style: italic; color: var(--accent); }
-    .contact-body p { font-size: 1rem; font-weight: 300; color: #4a4640; line-height: 1.85; margin-bottom: 2rem; }
-    .contact-links { display: flex; flex-direction: column; gap: 0; }
+    .contact-body p {
+      font-size: 0.98rem; font-weight: 300; color: #4a4640;
+      line-height: 1.88; margin-bottom: 2rem;
+    }
+    .contact-links { display: flex; flex-direction: column; }
     .contact-links a {
       font-family: 'DM Mono', monospace;
-      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--ink); text-decoration: none;
       border-bottom: 1px solid var(--border);
       padding: 0.9rem 0;
       display: flex; justify-content: space-between; align-items: center;
       transition: color 0.2s, border-color 0.2s;
     }
-    .contact-links a::after { content: '↗'; font-size: 0.85rem; }
+    .contact-links a::after { content: '↗'; font-size: 0.8rem; }
     .contact-links a:hover { color: var(--accent); border-color: var(--accent); }
 
     footer {
       text-align: center; padding: 2rem;
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem; letter-spacing: 0.14em;
+      font-size: 0.56rem; letter-spacing: 0.14em;
       color: var(--muted); border-top: 1px solid var(--border);
     }
 
-    /* ── REVEAL ── */
+    /* ─── SCROLL REVEAL ─── */
     .reveal {
-      opacity: 0; transform: translateY(28px);
+      opacity: 0; transform: translateY(26px);
       transition: opacity 0.75s ease, transform 0.75s ease;
     }
     .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.12s; }
-    .reveal-delay-2 { transition-delay: 0.24s; }
-    .reveal-delay-3 { transition-delay: 0.36s; }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
 
-    .hero-content { animation: heroIn 1s ease 0.15s both; }
+    /* hero animates in on load */
+    .hero-content { animation: heroIn 0.95s ease 0.1s both; }
     @keyframes heroIn {
-      from { opacity: 0; transform: translateY(35px); }
+      from { opacity: 0; transform: translateY(32px); }
       to   { opacity: 1; transform: none; }
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 780px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1rem; }
-      .hero { padding: 0 1.5rem 3rem; }
       .section-wrap { padding: 4rem 1.5rem; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .hero-greeting { font-size: clamp(2.2rem, 10vw, 3.5rem); white-space: normal; }
+
       .project-spread { grid-template-columns: 1fr; }
-      .project-spread.flip > .project-image { order: 0; }
-      .project-spread.flip > .project-body  { order: 0; border-right: none; border-left: none; border-top: 1px solid var(--border); }
-      .project-body { border-left: none; border-top: 1px solid var(--border); }
-      .project-image, .img-mosaic { min-height: 280px; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .interests-grid { grid-template-columns: 1fr; }
-      .interest-item { border-right: none !important; }
-      .edu-strip { grid-template-columns: 1fr; }
-      .edu-card { border-right: none; border-bottom: 1px solid var(--border); }
-      .edu-card:last-child { border-bottom: none; }
-      .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .project-spread.flip > .proj-visual { order: 0; }
+      .project-spread.flip > .proj-body   { order: 0; border-right: none; border-left: none; border-top: 1px solid var(--border); }
+      .proj-body { border-left: none; border-top: 1px solid var(--border); }
+      .proj-visual, .proj-mosaic { min-height: 260px; }
+
       .xp-row { grid-template-columns: 1fr; gap: 0.8rem; }
       .xp-divider { display: none; }
-      .hero-bg-text { font-size: 7rem; }
+
+      .edu-grid  { grid-template-columns: 1fr; }
+      .edu-card  { border-right: none; border-bottom: 1px solid var(--border); }
+      .edu-card:last-child { border-bottom: none; }
+
+      .skills-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .beyond-grid { grid-template-columns: 1fr; }
+      .beyond-card { border-right: none !important; }
+
+      .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
     }
   </style>
 </head>
 <body>
 
+<!-- ─── NAV ─── -->
 <nav>
   <a class="nav-logo" href="#">Kyra Gore</a>
   <ul class="nav-links">
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#beyond">Beyond</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- ─── HERO ─── -->
 <section class="hero">
-  <div class="hero-bg-text" aria-hidden="true">Kyra</div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Portfolio · Design Engineering · NUS</p>
-    <h1 class="hero-name">Kyra<br><em>Gore</em></h1>
+    <h1 class="hero-greeting">
+      <span class="plain">Hello, I'm </span><em>Kyra!</em>
+    </h1>
     <p class="hero-desc">
-      I am a fresh graduate from the National University of Singapore in Mechanical Engineering with a double major in Innovation and Design. I'm currently an <a href="https://www.duke-nus.edu.sg/innovation/for-aspiring-innovators/dhip" target="_blank">Engineering Fellow at the Duke-NUS Health Innovator Programme</a>, designing an orthopaedic device for knee replacement surgery in collaboration with Johnson &amp; Johnson and Singapore General Hospital. I don't just build things — I talk to the people who will use them first.
+      I recently graduated from the National University of Singapore (NUS) with a degree in Mechanical Engineering and Innovation &amp; Design. I'm currently seeking full-time opportunities in product innovation, product design, design engineering, or related roles.<br><br>
+      Through my academic projects, internships, and hands-on design experience, I've developed skills in user-centered design, prototyping, problem-solving, and product development. I enjoy working at the intersection of engineering, creativity, and innovation to build meaningful products and experiences across different industries.
     </p>
-    <div class="hero-meta">
-      <span>BEng Mechanical Engineering &amp; Innovation Design</span>
-      <span>GPA 4.4 / 5.0</span>
-      <span>Exchange · Loughborough University, UK</span>
-    </div>
   </div>
 </section>
 
-<!-- ── PROJECTS ── -->
+<!-- ─── 01 · PROJECT WORK ─── -->
 <section class="section-wrap white" id="projects">
   <div class="section-header reveal">
     <span class="section-num">01</span>
-    <h2 class="section-title">Selected<br><em>Work</em></h2>
+    <h2 class="section-title">Project<br><em>Work</em></h2>
   </div>
 
-  <!-- 01: Duke-NUS -->
+  <!-- P1: Knee Replacement -->
   <div class="project-spread reveal">
-    <div class="project-image">
-      <div class="img-mosaic">
-        <div class="img-placeholder tile-main">
-          <svg class="img-placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
-          <span class="img-placeholder-label">Swap: front &amp; side view sketches<br><em>img src="knee-main.jpg"</em></span>
+    <div class="proj-visual">
+      <div class="proj-mosaic">
+        <div class="img-placeholder ph-main">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">
+            Front &amp; side view — device sketches
+            <em class="img-ph-sub">swap: &lt;img src="knee-sketch.jpg"&gt;</em>
+          </span>
         </div>
         <div class="img-placeholder">
-          <span class="img-placeholder-label">Sensor placement diagram</span>
+          <span class="img-ph-label">Sensor placement diagram</span>
         </div>
         <div class="img-placeholder">
-          <span class="img-placeholder-label">Prototype detail</span>
+          <span class="img-ph-label">Early prototype</span>
         </div>
       </div>
     </div>
-    <div class="project-body">
-      <div class="project-tag">Duke-NUS Health Innovator Programme · Final Year Project</div>
-      <div class="project-num">01</div>
-      <h3 class="project-title">Enhancing Total Knee Replacement for Surgeon Comfort</h3>
-      <div class="project-role">Design Lead, Engineering Fellow &nbsp;·&nbsp; Aug 2025 – May 2026</div>
+    <div class="proj-body">
+      <div class="proj-tag">Duke-NUS Health Innovator Programme · Final Year Project</div>
+      <div class="proj-num">01</div>
+      <h3 class="proj-title">Enhancing Total Knee Replacement for Better Surgical Outcomes</h3>
+      <div class="proj-role">Design Lead, Engineering Fellow &nbsp;·&nbsp; Aug 2025 – May 2026</div>
       <p>I'm designing an orthopaedic device that measures soft-tissue tension during total knee replacement surgery, aimed at improving post-operative satisfaction. I began by mapping the surgeon's intra-operative journey and conducting in-depth interviews with clinicians to uncover pain points around inconsistent tension assessment and insufficient feedback loops.</p>
       <p>Collaborating with engineers at Johnson &amp; Johnson and clinicians at Singapore General Hospital, I translated these insights into actionable design requirements and led iterative exploration of hardware and interface concepts. I spearheaded the prototyping effort, integrating sensors with a personalised force-to-joint-gap feedback system, and tested early prototypes with users to validate clarity, ergonomics, and workflow fit.</p>
       <p>Used design thinking and user-centric approaches to conduct surveys and user interviews before identifying the key pain points experienced by the surgeon. The project is in collaboration with a business fellow and a medical fellow, and it has taught me a lot about working in a multi-disciplinary team.</p>
       <div>
-        <span class="confidential-badge">🔒 Confidential · Ongoing</span>
+        <span class="badge badge-confidential">🔒 Confidential · Ongoing</span>
       </div>
     </div>
   </div>
 
-  <!-- 02: NGT -->
+  <!-- P2: NGT -->
   <div class="project-spread flip reveal">
-    <div class="project-image">
-      <div class="img-mosaic">
-        <div class="img-placeholder tile-main">
-          <svg class="img-placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
-          <span class="img-placeholder-label">Swap: training model full view<br><em>img src="ngt-main.jpg"</em></span>
+    <div class="proj-visual">
+      <div class="proj-mosaic">
+        <div class="img-placeholder ph-main">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">
+            Training model — full view
+            <em class="img-ph-sub">swap: &lt;img src="ngt-main.jpg"&gt;</em>
+          </span>
         </div>
         <div class="img-placeholder">
-          <span class="img-placeholder-label">Internal electronics</span>
+          <span class="img-ph-label">Internal electronics &amp; sensors</span>
         </div>
         <div class="img-placeholder">
-          <span class="img-placeholder-label">Final product in use</span>
+          <span class="img-ph-label">Final product in use</span>
         </div>
       </div>
     </div>
-    <div class="project-body">
-      <div class="project-tag">Pediatric Care · NUS</div>
-      <div class="project-num">02</div>
-      <h3 class="project-title">Infant NGT Insertion Training Model</h3>
-      <div class="project-role">Team Lead, Product &amp; Experience Design &nbsp;·&nbsp; Jan 2024 – Dec 2024</div>
+    <div class="proj-body">
+      <div class="proj-tag">Pediatric Care · NUS</div>
+      <div class="proj-num">02</div>
+      <h3 class="proj-title">Infant NGT Insertion Training Model</h3>
+      <div class="proj-role">Team Lead, Product &amp; Experience Design &nbsp;·&nbsp; Jan 2024 – Dec 2024</div>
       <p>As team lead, I designed a training model to help caregivers practise infant nasogastric (NGT) insertion safely before performing the procedure on a real child. We began with contextual research in hospital settings, observing training sessions and conducting in-depth interviews with both nurses and caregivers to uncover real anxiety points, common errors, and gaps in existing tools.</p>
       <p>Using design thinking and co-creation workshops, I guided the team in turning these insights into personas, journey maps, and key opportunity areas focused on confidence-building, feedback clarity, and repeatability.</p>
       <p>We developed and iterated on multiple prototypes, combining soft materials, embedded sensors, and actuators to replicate realistic resistance and provide immediate visual and tactile feedback when the tube was inserted correctly or incorrectly. The final product was deployed for pilot testing and recognised as the "Most Inspiring Project" among 30 teams — a reflection of its strong user-centred design process, clinical relevance, and tangible impact on caregiver confidence.</p>
       <div>
-        <span class="award-badge">🏆 Most Inspiring Project — among 30 teams</span>
+        <span class="badge badge-award">🏆 Most Inspiring Project — among 30 teams</span>
       </div>
     </div>
   </div>
 
-  <!-- 03: Foley -->
+  <!-- P3: Origami Research -->
   <div class="project-spread reveal">
-    <div class="project-image">
-      <div class="img-mosaic">
-        <div class="img-placeholder tile-main">
-          <svg class="img-placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
-          <span class="img-placeholder-label">Swap: Firefly lamp rendered<br><em>img src="foley-main.jpg"</em></span>
+    <div class="proj-visual">
+      <div class="proj-mosaic">
+        <div class="img-placeholder ph-main">
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">
+            Crease pattern — original &amp; vectorised
+            <em class="img-ph-sub">swap: &lt;img src="origami-crease.jpg"&gt;</em>
+          </span>
         </div>
         <div class="img-placeholder">
-          <span class="img-placeholder-label">3D printed prototype</span>
+          <span class="img-ph-label">Graph theory analysis</span>
         </div>
         <div class="img-placeholder">
-          <span class="img-placeholder-label">Arduino wiring detail</span>
+          <span class="img-ph-label">Web interface screenshot</span>
         </div>
       </div>
     </div>
-    <div class="project-body">
-      <div class="project-tag">Design Engineering Intern · Foley Designs</div>
-      <div class="project-num">03</div>
-      <h3 class="project-title">Child-Friendly DIY Lamp Kit</h3>
-      <div class="project-role">Product &amp; Experience Designer &nbsp;·&nbsp; May 2023 – Jul 2023</div>
-      <p>At Foley Designs, I designed a child-friendly DIY lamp kit for children aged 5–10, blending safety, learning, and delight. We began with observational research sessions with children and parents, watching how they interacted with early prototypes — where they got stuck, what sparked curiosity, and when they lost focus.</p>
-      <p>Using those insights, I simplified the assembly journey, redefined connection points and affordances, and restructured the instructions to make the experience intuitive and self-guided, even without adult assistance. I integrated Arduino and sensors within a Fusion 360-based 3D printed form, ensuring all electronics were securely enclosed yet visually engaging.</p>
-      <p>Through rapid prototyping and iterative user testing, I refined the physical and interaction details to make the kit rewarding, safe, and frustration-free. The final product turned electronics into a playful, low-friction learning experience that fostered fine motor skills, creativity, and a sense of accomplishment — teaching me how thoughtful design can make complex technology feel simple, empowering, and fun.</p>
-    </div>
-  </div>
-
-  <!-- 04: Bajaj -->
-  <div class="project-spread flip reveal">
-    <div class="project-image">
-      <div class="img-mosaic">
-        <div class="img-placeholder tile-main">
-          <svg class="img-placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
-          <span class="img-placeholder-label">Swap: workflow diagram<br><em>img src="bajaj-main.jpg"</em></span>
-        </div>
-        <div class="img-placeholder">
-          <span class="img-placeholder-label">Brake system drawing</span>
-        </div>
-        <div class="img-placeholder">
-          <span class="img-placeholder-label">Drafting template</span>
-        </div>
-      </div>
-    </div>
-    <div class="project-body">
-      <div class="project-tag">Mechanical Engineering Intern · Bajaj Auto Limited</div>
-      <div class="project-num">04</div>
-      <h3 class="project-title">Automation Tools for Brake System Design</h3>
-      <div class="project-role">Product Designer (Engineering Intern) &nbsp;·&nbsp; May 2024 – Jul 2024</div>
-      <p>At Bajaj Auto, I designed automation tools to streamline repetitive tasks in brake system design. I began by shadowing design engineers and mapping their end-to-end workflow — identifying time sinks, frequent error points, and friction moments that slowed iteration.</p>
-      <p>From these insights, I collaborated with a team of five engineers to co-design automation scripts that restructured key processes, reduced cognitive load, and standardised modelling steps. My focus was on making the tools intuitive, efficient, and aligned with engineers' mental models, not just technically optimised.</p>
-      <p>The result was a more seamless, consistent design workflow that cut manual errors by ~40% and improved adoption by making automation feel natural rather than imposed. This project taught me to approach internal tools as user products — balancing usability, technical precision, and measurable impact to enhance both experience and efficiency.</p>
-    </div>
-  </div>
-
-  <!-- 05: Origami Research -->
-  <div class="project-spread reveal">
-    <div class="project-image">
-      <div class="img-mosaic">
-        <div class="img-placeholder tile-main">
-          <svg class="img-placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
-          <span class="img-placeholder-label">Swap: crease pattern images<br><em>img src="origami-research.jpg"</em></span>
-        </div>
-        <div class="img-placeholder">
-          <span class="img-placeholder-label">Vectorised output</span>
-        </div>
-        <div class="img-placeholder">
-          <span class="img-placeholder-label">Graph analysis</span>
-        </div>
-      </div>
-    </div>
-    <div class="project-body">
-      <div class="project-tag">Research · Dr. Jason Ku, NUS</div>
-      <div class="project-num">05</div>
-      <h3 class="project-title">Computational Origami Software</h3>
-      <div class="project-role">Researcher — Algorithmic &amp; Interaction Design &nbsp;·&nbsp; Jan 2023 – Jun 2024</div>
+    <div class="proj-body">
+      <div class="proj-tag">Research · Dr. Jason Ku, NUS</div>
+      <div class="proj-num">03</div>
+      <h3 class="proj-title">Computational Origami Software</h3>
+      <div class="proj-role">Researcher — Algorithmic &amp; Interaction Design &nbsp;·&nbsp; Jan 2023 – Jun 2024</div>
       <p>Under the guidance of Dr. Jason Ku, I've developed a software tool that converts images of origami crease patterns into standardised, vector-based digital formats for designers and researchers. The goal is to make complex crease data more accessible and editable, bridging traditional paper folding with computational design workflows.</p>
       <p>I designed and implemented algorithms using breadth-first and depth-first search to detect edges, vertices, and connectivity within scanned crease patterns. This required learning JavaScript, HTML, and CSS to build an interactive web-based interface where users can upload, visualise, and refine crease structures in real time.</p>
-      <p>As an origami enthusiast myself, this project let me explore the intersection of art, mathematics, and computation — treating each algorithmic feature like a product interaction that must be intuitive, accurate, and responsive. The ongoing work aims to evolve into a full-fledged tool for the origami and design community.</p>
+      <p>As an origami enthusiast myself, this project let me explore the intersection of art, mathematics, and computation — treating each algorithmic feature like a product interaction that must be intuitive, accurate, and responsive. The ongoing work aims to evolve into a full-fledged tool for the origami and design community, making computational folding more approachable and collaborative.</p>
     </div>
   </div>
 </section>
 
-<!-- ── EDUCATION ── -->
-<section class="section-wrap" id="education">
+<!-- ─── 02 · WORK EXPERIENCE ─── -->
+<section class="section-wrap dark" id="work">
   <div class="section-header reveal">
     <span class="section-num">02</span>
+    <h2 class="section-title">Work<br><em>Experience</em></h2>
+  </div>
+
+  <!-- W1: Bajaj -->
+  <div class="xp-row reveal">
+    <div>
+      <div class="xp-period">May 2024 – Aug 2024</div>
+      <div class="xp-title">Automation Tools for Brake System Design</div>
+      <div class="xp-org">Mechanical Engineering Intern · Bajaj Auto Limited</div>
+    </div>
+    <div class="xp-divider"></div>
+    <div class="xp-right">
+      At Bajaj Auto, I designed automation tools to streamline repetitive tasks in brake system design. I began by shadowing design engineers and mapping their end-to-end workflow — identifying time sinks, frequent error points, and friction moments that slowed iteration. From these insights, I collaborated with a team of five engineers to co-design automation scripts that restructured key processes, reduced cognitive load, and standardised modelling steps. The result was a more seamless, consistent design workflow that cut manual errors by ~40% and improved adoption by making automation feel natural rather than imposed.
+    </div>
+  </div>
+
+  <!-- W2: Foley Designs -->
+  <div class="xp-row reveal reveal-d1">
+    <div>
+      <div class="xp-period">May 2023 – Jul 2023</div>
+      <div class="xp-title">Child-Friendly DIY Lamp Kit</div>
+      <div class="xp-org">Engineering Intern · Foley Designs</div>
+    </div>
+    <div class="xp-divider"></div>
+    <div class="xp-right">
+      At Foley Designs, I designed a child-friendly DIY lamp kit for children aged 5–10, blending safety, learning, and delight. We began with observational research sessions with children and parents, watching how they interacted with early prototypes — where they got stuck, what sparked curiosity, and when they lost focus. Using those insights, I simplified the assembly journey, redefined connection points and affordances, and integrated Arduino and sensors within a Fusion 360-based 3D printed form, ensuring all electronics were securely enclosed yet visually engaging. Balanced aesthetics, functionality, and user engagement, developing a product which enhanced fine motor skills and fostered creativity.
+    </div>
+  </div>
+
+  <!-- W3: NUS TA -->
+  <div class="xp-row reveal reveal-d2">
+    <div>
+      <div class="xp-period">Aug 2024 – Present</div>
+      <div class="xp-title">Design &amp; Make Teaching Assistant</div>
+      <div class="xp-org">National University of Singapore</div>
+    </div>
+    <div class="xp-divider"></div>
+    <div class="xp-right">
+      Guided 200 first-year students in design ideation, laser cutting, and prototyping techniques with a focus on product development and efficiency. Enabled students to enhance their design thinking skills by helping them troubleshoot their robotic car designs. Used Arduino to program the robot to pass an obstacle course, and used Autodesk Fusion 360 to design the parts of the robot.
+    </div>
+  </div>
+</section>
+
+<!-- ─── 03 · EDUCATION ─── -->
+<section class="section-wrap plain" id="education">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
     <h2 class="section-title"><em>Education</em></h2>
   </div>
-  <div class="edu-strip reveal">
+  <div class="edu-grid reveal">
     <div class="edu-card">
-      <div class="edu-period">Aug 2022 – Present</div>
+      <div class="edu-period">Aug 2022 – 2026</div>
       <div class="edu-school">National University of Singapore</div>
       <div class="edu-degree">BEng Mechanical Engineering (Honours)<br>Double Major in Innovation &amp; Design</div>
       <div class="edu-detail">GPA 4.4 / 5.0</div>
@@ -585,154 +591,131 @@
   </div>
 </section>
 
-<!-- ── EXPERIENCE ── -->
-<section class="section-wrap dark" id="experience">
-  <div class="section-header reveal">
-    <span class="section-num">03</span>
-    <h2 class="section-title" style="color:var(--bg)">Work<br><em>Experience</em></h2>
-  </div>
-
-  <div class="xp-row reveal">
-    <div class="xp-left">
-      <div class="xp-period">Aug 2024 – Present</div>
-      <div class="xp-title">Design &amp; Make Teaching Assistant</div>
-      <div class="xp-org">National University of Singapore</div>
-    </div>
-    <div class="xp-divider"></div>
-    <div class="xp-right">Guided 200 first-year students in design ideation, laser cutting, and prototyping techniques with a focus on product development and efficiency. Enabled students to enhance their design thinking skills by helping them troubleshoot their robotic car designs. Used Arduino to program the robot to pass an obstacle course, and used Autodesk Fusion 360 to design the parts of the robot.</div>
-  </div>
-
-  <div class="xp-row reveal reveal-delay-1">
-    <div class="xp-left">
-      <div class="xp-period">May 2024 – Aug 2024</div>
-      <div class="xp-title">Mechanical Engineering Intern</div>
-      <div class="xp-org">Bajaj Auto Limited</div>
-    </div>
-    <div class="xp-divider"></div>
-    <div class="xp-right">Developed automation scripts to minimize repetitive tasks in brake system design, improving user efficiency and reducing manual errors by 40%. Collaborated closely with 5 design engineers to research and standardize 3D modelling procedures, ensuring intuitive and user-friendly automation process.</div>
-  </div>
-
-  <div class="xp-row reveal reveal-delay-2">
-    <div class="xp-left">
-      <div class="xp-period">May 2023 – Jul 2023</div>
-      <div class="xp-title">Engineering Intern</div>
-      <div class="xp-org">Foley Designs</div>
-    </div>
-    <div class="xp-divider"></div>
-    <div class="xp-right">Led user research to develop an automatic child-friendly DIY lamp kit — conducted usability testing with children aged 5–10 to refine intuitive assembly features. Integrated Arduino and sensors in a Fusion 360 3D printed model. Balanced aesthetics, functionality, and user engagement, developing a product which enhanced fine motor skills and fostered creativity.</div>
-  </div>
-</section>
-
-<!-- ── SKILLS ── -->
-<section class="section-wrap white">
+<!-- ─── 04 · SKILLS ─── -->
+<section class="section-wrap white" id="skills">
   <div class="section-header reveal">
     <span class="section-num">04</span>
     <h2 class="section-title">Skills &amp;<br><em>Tools</em></h2>
   </div>
-  <div class="about-grid reveal">
-    <div class="about-block">
+  <div class="skills-grid reveal">
+    <div class="skills-about">
       <h3>The approach</h3>
       <p>I believe the best products come from understanding people first. My process always starts with observing, interviewing, and mapping — before a single prototype is made. Then I iterate fast, test honestly, and refine until the thing actually works for the person using it.</p>
     </div>
-    <div class="skills-groups">
-      <div class="skills-group">
-        <div class="skills-group-label">Technical</div>
+    <div>
+      <div class="skill-group">
+        <div class="skill-group-label">Technical</div>
         <div class="tag-row">
-          <span class="tag">Autodesk Fusion 360</span><span class="tag">Solidworks</span><span class="tag">NX</span><span class="tag">Figma</span><span class="tag">Arduino</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">HTML &amp; CSS</span>
+          <span class="tag">Autodesk Fusion 360</span>
+          <span class="tag">Solidworks</span>
+          <span class="tag">NX</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Arduino</span>
+          <span class="tag">Python</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML &amp; CSS</span>
         </div>
       </div>
-      <div class="skills-group">
-        <div class="skills-group-label">Prototyping</div>
+      <div class="skill-group">
+        <div class="skill-group-label">Prototyping</div>
         <div class="tag-row">
-          <span class="tag">3D Printing</span><span class="tag">Laser Cutting</span><span class="tag">Silicon Casting</span><span class="tag">Vacuum Forming</span><span class="tag">Wiring</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">Laser Cutting</span>
+          <span class="tag">Silicon Casting</span>
+          <span class="tag">Vacuum Forming</span>
+          <span class="tag">Wiring &amp; Electronics</span>
         </div>
       </div>
-      <div class="skills-group">
-        <div class="skills-group-label">User-Centred Research</div>
+      <div class="skill-group">
+        <div class="skill-group-label">User-Centred Research</div>
         <div class="tag-row">
-          <span class="tag">Affinity Mapping</span><span class="tag">Persona Development</span><span class="tag">Journey Mapping</span><span class="tag">Usability Testing</span><span class="tag">User Interviews</span>
+          <span class="tag">Affinity Mapping</span>
+          <span class="tag">Persona Development</span>
+          <span class="tag">Journey Mapping</span>
+          <span class="tag">Usability Testing</span>
+          <span class="tag">User Interviews</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── BEYOND ── -->
-<section class="section-wrap" id="beyond">
+<!-- ─── 05 · BEYOND WORK ─── -->
+<section class="section-wrap plain" id="beyond">
   <div class="section-header reveal">
     <span class="section-num">05</span>
     <h2 class="section-title">Beyond<br><em>Work</em></h2>
   </div>
-  <div class="interests-grid">
+  <div class="beyond-grid">
 
-    <div class="interest-item reveal">
-      <div class="interest-image">
-        <!-- SWAP: <img src="origami.jpg" alt="Origami models" style="width:100%;height:100%;object-fit:cover"> -->
+    <div class="beyond-card reveal">
+      <div class="beyond-image">
+        <!-- SWAP: <img src="origami.jpg" alt="Origami" style="width:100%;height:100%;object-fit:cover"> -->
         <div class="img-placeholder">
-          <svg class="img-placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
-          <span class="img-placeholder-label">Your origami photos here</span>
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Your origami photos here</span>
         </div>
       </div>
-      <div class="interest-label">Art &amp; Making</div>
-      <div class="interest-title">Origami</div>
-      <div class="interest-desc">As a young child, I had always been fascinated with how a single sheet of paper can be folded and unfolded to form new structures and dimensions. Ever since I learned how to fold a paper crane in grade 3, my passion for origami has continued to increase. I have now evolved from folding simple paper cranes to folding complex movable structures that transform themselves to make new forms.<br><br>Origami allows me to express my feelings while exercising my mind at the same time. Founder &amp; President of NUS Origami Club (400 members). IB extended essay on the mathematics of complex origami folds.</div>
+      <div class="beyond-label">Art &amp; Making</div>
+      <div class="beyond-title">Origami</div>
+      <div class="beyond-desc">As a young child, I had always been fascinated with how a single sheet of paper can be folded and unfolded to form new structures and dimensions. Ever since I learned how to fold a paper crane in grade 3, my passion for origami has continued to increase. I have now evolved from folding simple paper cranes to folding complex movable structures that transform themselves to make new forms.<br><br>Founder &amp; President of NUS Origami Club (400 members). Wrote my IB extended essay on the mathematics of complex origami folds — exploring symmetry, binary systems, and trigonometry in every fold.</div>
     </div>
 
-    <div class="interest-item reveal reveal-delay-1">
-      <div class="interest-image">
+    <div class="beyond-card reveal reveal-d1">
+      <div class="beyond-image">
         <!-- SWAP: <img src="football.jpg" alt="Football" style="width:100%;height:100%;object-fit:cover"> -->
         <div class="img-placeholder">
-          <svg class="img-placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
-          <span class="img-placeholder-label">Your football photos here</span>
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Your football photos here</span>
         </div>
       </div>
-      <div class="interest-label">Sport &amp; Leadership</div>
-      <div class="interest-title">Football</div>
-      <div class="interest-desc">Football has been my passion through the school years, and it has taught me much about teamwork and leadership. Captaining my football team has been a privilege and responsibility. I represented my school at the state level in grades 9 and 10 where we travelled to Kolhapur to face other teams from our district.<br><br>During the COVID lockdown, my sister and I started an initiative teaching girls aged 4–10 in our housing complex to play football — most went from never having touched a ball to playing with friends daily. Press coverage in <em>Mid-Day</em>.</div>
+      <div class="beyond-label">Sport &amp; Leadership</div>
+      <div class="beyond-title">Football</div>
+      <div class="beyond-desc">Football has been my passion through the school years, and it has taught me much about teamwork and leadership. Captaining my football team has been a privilege and responsibility. I represented my school at the state level in grades 9 and 10 where we travelled to Kolhapur to face other teams from our district.<br><br>During the COVID lockdown, my sister and I started an initiative teaching girls aged 4–10 in our housing complex to play football — most went from never having touched a ball to playing with friends daily. Press coverage in <em>Mid-Day</em>.</div>
     </div>
 
-    <div class="interest-item reveal reveal-delay-2">
-      <div class="interest-image">
+    <div class="beyond-card reveal reveal-d2">
+      <div class="beyond-image">
         <!-- SWAP: <img src="art.jpg" alt="Art doodles" style="width:100%;height:100%;object-fit:cover"> -->
         <div class="img-placeholder">
-          <svg class="img-placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
-          <span class="img-placeholder-label">Your art &amp; doodles here</span>
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Your art &amp; doodles here</span>
         </div>
       </div>
-      <div class="interest-label">Visual Arts</div>
-      <div class="interest-title">Art Doodles</div>
-      <div class="interest-desc">A favourite stress buster for me is to do doodles on the iPad. The act of detailing out and abstracting images interests me. I work in digital illustration on iPad, intricate mandala pen work, and acrylic on canvas (20×20cm).<br><br>During COVID, I organised a community art challenge for children aged 4–10 — letting their creativity flow freely with paints. One of my major learnings was to let your creativity flow and always keep the child in you alive.</div>
+      <div class="beyond-label">Visual Arts</div>
+      <div class="beyond-title">Art Doodles</div>
+      <div class="beyond-desc">A favourite stress buster for me is to do doodles on the iPad. The act of detailing out and abstracting images interests me. I work in digital illustration on iPad, intricate mandala pen work, and acrylic on canvas (20×20cm).<br><br>During COVID, I organised a community art challenge for children aged 4–10 — letting their creativity flow freely with paints. One of my major learnings was to let your creativity flow and always keep the child in you alive.</div>
     </div>
 
-    <div class="interest-item reveal reveal-delay-3">
-      <div class="interest-image">
+    <div class="beyond-card reveal reveal-d3">
+      <div class="beyond-image">
         <!-- SWAP: <img src="robotics.jpg" alt="Robotics" style="width:100%;height:100%;object-fit:cover"> -->
         <div class="img-placeholder">
-          <svg class="img-placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
-          <span class="img-placeholder-label">Your robotics photos here</span>
+          <svg class="img-ph-icon" viewBox="0 0 48 48" fill="none" stroke="#999" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><circle cx="18" cy="18" r="5"/><path d="M6 34l10-10 8 8 6-6 12 12"/></svg>
+          <span class="img-ph-label">Your robotics photos here</span>
         </div>
       </div>
-      <div class="interest-label">Engineering</div>
-      <div class="interest-title">Robotics</div>
-      <div class="interest-desc">In early 2021, I participated in the FIRST Robotics Competition (FRC Innovation Challenge) where our team created an everyday wearable device that tracks, regulates, and monitors breathing patterns. It measures chest and belly expansions and analyses the collected data as a preliminary indication of asthma or other pulmonary diseases.<br><br>We used Force Sensitive Resistors and an Arduino Nano ATMega328p microcontroller. I was nominated for the Dean's List Award. The competition taught me the synthesis of design, programming, and manufacturing to create a fully functional device.</div>
+      <div class="beyond-label">Engineering</div>
+      <div class="beyond-title">Robotics</div>
+      <div class="beyond-desc">In early 2021, I participated in the FIRST Robotics Competition (FRC Innovation Challenge) where our team created an everyday wearable device that tracks, regulates, and monitors breathing patterns. It measures chest and belly expansions and analyses the collected data as a preliminary indication of asthma or other pulmonary diseases.<br><br>We used Force Sensitive Resistors and an Arduino Nano ATMega328p microcontroller. I was nominated for the Dean's List Award — a big personal achievement.</div>
     </div>
 
   </div>
 </section>
 
-<!-- ── QUOTE ── -->
+<!-- ─── QUOTE ─── -->
 <div class="quote-wrap reveal">
   <blockquote>I believe that my academic excellence and varying interests not only make me a well-rounded and balanced person, but also provide me with the confidence to dream big, the conviction to chase my dreams and the single-minded focus to convert them to reality.</blockquote>
 </div>
 
-<!-- ── CONTACT ── -->
+<!-- ─── 06 · CONTACT ─── -->
 <section class="section-wrap white" id="contact">
   <div class="contact-wrap">
     <div class="reveal">
       <h2 class="contact-heading">Let's<br><em>Connect</em></h2>
     </div>
-    <div class="contact-body reveal reveal-delay-1">
-      <p>I'm actively looking for full-time roles in product design, design engineering, or UX-driven hardware. If anything here resonates, I'd love to connect.</p>
+    <div class="reveal reveal-d1">
+      <p class="contact-body" style="font-size:0.98rem;font-weight:300;color:#4a4640;line-height:1.88;margin-bottom:2rem;">I'm actively looking for full-time roles in product design, design engineering, or UX-driven hardware. If anything here resonates, I'd love to connect.</p>
       <div class="contact-links">
         <a href="mailto:kyragore@u.nus.edu">kyragore@u.nus.edu</a>
         <a href="https://www.linkedin.com/in/kyra-gore-255273256" target="_blank">LinkedIn</a>
@@ -745,6 +728,7 @@
 <footer>Kyra Gore &nbsp;·&nbsp; National University of Singapore &nbsp;·&nbsp; 2026</footer>
 
 <script>
+  // smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(function(link) {
     link.addEventListener('click', function(e) {
       var href = this.getAttribute('href');
@@ -757,11 +741,11 @@
     });
   });
 
-  var observer = new IntersectionObserver(function(entries) {
+  // scroll reveal
+  var obs = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.07 });
-  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
 </script>
-
 </body>
 </html>
